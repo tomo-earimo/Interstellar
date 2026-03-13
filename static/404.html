@@ -14,68 +14,84 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   
   <style>
-    /* 全体を黒背景・白文字に固定 */
+    /* 背景を真っ黒に固定 */
     body {
       background-color: #000 !important;
+      background-image: none !important; /* 背景画像が干渉しないように */
       color: #fff !important;
       margin: 0;
       font-family: 'Inter', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column; /* 上下に分ける */
       overflow: hidden;
     }
 
+    /* ナビゲーションバーの設定（透過させて浮かせる） */
+    .f-nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.5) !important;
+      backdrop-filter: blur(10px);
+    }
+
+    /* メインコンテンツを画面のど真ん中に配置 */
     .main.error {
+      flex: 1; /* 残りの画面いっぱいを使う */
+      display: flex;
+      flex-direction: column;
+      justify-content: center; /* 垂直方向中央 */
+      align-items: center;     /* 水平方向中央 */
       text-align: center;
+      padding-top: 60px; /* ナビバーに被らないように余白を追加 */
     }
 
     h1 {
-      font-size: 120px;
+      font-size: clamp(80px, 15vw, 150px); /* 画面サイズに合わせて可変 */
       margin: 0;
       font-weight: 900;
-      letter-spacing: -5px;
+      letter-spacing: -2px;
+      line-height: 1;
     }
 
     h3 {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 300;
-      margin-bottom: 30px;
-      letter-spacing: 2px;
+      margin: 10px 0 30px 0;
+      letter-spacing: 4px;
       text-transform: uppercase;
+      opacity: 0.8;
     }
 
-    /* シンプルな白枠ボタン */
     button.one {
       background: transparent;
       color: #fff;
-      border: 1px solid #fff;
-      padding: 12px 30px;
-      font-size: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      padding: 15px 40px;
+      font-size: 13px;
       cursor: pointer;
       transition: all 0.3s ease;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
+      outline: none;
     }
 
-    /* ホバー時に色を反転 */
     button.one:hover {
       background: #fff;
       color: #000;
+      border-color: #fff;
     }
 
-    /* ナビゲーション内のSettings以外を隠す設定（以前の継続） */
+    /* ナビゲーション内のSettings以外を隠す */
     .f-nav-right .navbar-link {
       display: none !important;
     }
     .f-nav-right .navbar-link:last-child {
       display: inline-flex !important;
       color: #fff !important;
-    }
-    .f-nav {
-      background: transparent !important;
-      box-shadow: none !important;
     }
   </style>
 
@@ -85,11 +101,12 @@
 
 <body>
   <div class="f-nav"></div>
+  
   <div class="main error">
     <h1>404</h1>
-    <h3>Page Not Found</h3>
+    <h3>このページは見つかりませんでした</h3>
     <button class="one" type="button" onclick="window.location.href = '/';">
-      Go Back Home
+      ホームに戻る
     </button>
   </div>
 </body>
