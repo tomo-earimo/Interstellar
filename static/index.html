@@ -14,27 +14,26 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   
   <style>
-    /* 1. 一旦、ナビゲーション内のすべてのリンクを非表示にする */
+    /* 1. 全てのナビゲーションボタンを一旦隠す */
     .f-nav-right .navbar-link {
       display: none !important;
     }
 
-    /* 2. href属性に "s" (settingsのs) が含まれるリンクだけを強制的に表示する */
-    /* これにより、/s や /settings へのリンク（Settingsボタン）だけが残ります */
-    .f-nav-right .navbar-link[href*="s"] {
+    /* 2. "Settings" という文字を含むボタンだけを強制的に表示する */
+    /* :has() という最新のCSSを使って、中にSettingsという文字がある場合のみ表示させます */
+    .f-nav-right .navbar-link:contains("Settings"),
+    .f-nav-right .navbar-link:has(i.fa-gear),
+    .f-nav-right .navbar-link:has(i.fa-cog),
+    .f-nav-right .navbar-link:has(.settings-icon) {
       display: inline-flex !important;
-      align-items: center;
-      font-size: 18px !important; /* 文字サイズを戻す */
-      color: var(--text-primary) !important;
-      visibility: visible !important;
-      text-decoration: none;
     }
 
-    /* アイコンと文字の間の調整 */
-    .f-nav-right .navbar-link[href*="s"] i,
-    .f-nav-right .navbar-link[href*="s"] .navbar-icon {
-      margin-right: 8px;
-      font-size: 20px !important;
+    /* 3. もし上記が効かない場合のバックアップ案：
+       JSで生成される順番が最後なことが多いので、最後の要素だけ表示する */
+    .f-nav-right .navbar-link:last-child {
+      display: inline-flex !important;
+      align-items: center;
+      color: var(--text-primary) !important;
     }
   </style>
 
