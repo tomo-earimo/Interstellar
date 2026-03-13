@@ -5,7 +5,6 @@
   <meta charset="UTF-8" />
   <meta name="referrer" content="no-referrer" />
   <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
-  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" id="tab-favicon" href="favicon.png" />
   <title id="t">Setting</title>
@@ -127,37 +126,8 @@
       </div>
 
       <div class="settings-card">
-        <h3>背景パーティクル</h3>
-        <p>
-          以前のバージョンで使用されていた背景の粒子エフェクトを表示します。
-        </p>
-        <label class="switch">
-          <input type="checkbox" class="slider-checkbox" id="2" />
-          <span class="slider-round"></span>
-        </label>
-      </div>
-
-      <div class="settings-card">
-        <h3>テーマ変更</h3>
-        <p>サイト全体のカラーテーマをカスタマイズします。</p>
-        <select placeholder="ソリッドカラー" id="dropdown" class="td" onchange="themeChange(this)">
-          <option disabled selected>カラーテーマ</option>
-          <option value="d">デフォルト</option>
-          <option value="Inverted">反転</option>
-          <option value="sky">スカイブルー</option>
-          <option disabled selected>Catppuccinテーマ</option>
-          <option value="catppuccinMocha">Mocha</option>
-          <option value="catppuccinMacchiato">Macchiato</option>
-          <option value="catppuccinFrappe">Frappe</option>
-          <option value="catppuccinLatte">Latte</option>
-        </select>
-      </div>
-
-      <div class="settings-card">
         <h3>データ管理</h3>
-        <p>設定データをエクスポートして、別のサイトに移行できます。
-           サイトがブロックされた際のバックアップとして有効です。
-        </p>
+        <p>設定データをエクスポートして、別のサイトに移行できます。サイトがブロックされた際のバックアップとして有効です。</p>
         <p id="warning" style="color: #ff4444;">※インポートすると現在の設定は上書きされます！</p>
         <button class="key-button" value="Export" onclick="exportSaveData();">データを書き出す</button>
         <button class="key-button" value="Import" onclick="importSaveData();">データを読み込む</button>
@@ -168,16 +138,9 @@
         <p>バージョン: v5.2.6</p>
         <p id="last-updated">最終更新日: 2024年10月2日</p>
         <p>
-          このProxyはInterstellarのレポジトリをフォークし、
-
-          
-          改変したものです。
-
-          
-          Interstellarについては、以下のGithubを参照してください
-
-          
-          https://github.com/UseInterstellar/Interstellar
+          このProxyはInterstellarのレポジトリをフォークし、改変したものです。
+          詳細については、以下のGitHubを参照してください：<br>
+          <a href="https://github.com/UseInterstellar/Interstellar" target="_blank" style="color: var(--text-primary);">https://github.com/UseInterstellar/Interstellar</a>
         </p>
       </div>
     </div>
