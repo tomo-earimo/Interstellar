@@ -11,106 +11,71 @@
   
   <link rel="stylesheet" href="/assets/css/global.css?v=6" />
   <link rel="stylesheet" href="/assets/css/nav.css?v=01" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   
   <style>
-    /* 背景画像とグラデーションを適用し、中央配置のベースを作る */
+    /* 全体を黒背景・白文字に固定 */
     body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', sans-serif;
-      height: 100vh;
-      width: 100vw;
-      /* 画像のようなグラデーションとドットパターンを再現 */
-      background: 
-        radial-gradient(circle at 10% 10%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-        linear-gradient(135deg, #4facfe 0%, #00f2fe 30%, #4facfe 50%, #f78da7 100%);
-      background-size: 20px 20px, 100% 100%; /* ドットのサイズと全体のサイズ */
-      background-position: center;
+      background-color: #000 !important;
       color: #fff !important;
+      margin: 0;
+      font-family: 'Inter', sans-serif;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
       overflow: hidden;
     }
 
-    /* ナビゲーションバー（上部に固定、少し透過） */
-    .f-nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      height: 60px; /* バーの高さ */
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.1) !important;
-      backdrop-filter: blur(10px);
-      display: flex;
-      align-items: center;
-      padding: 0 20px;
-      box-sizing: border-box;
-    }
-
-    /* メインコンテンツを画面のど真ん中に配置 */
     .main.error {
-      flex: 1; /* 残りの画面いっぱいを使う */
-      display: flex;
-      flex-direction: column;
-      justify-content: center; /* 垂直方向中央 */
-      align-items: center;     /* 水平方向中央 */
       text-align: center;
-      padding-top: 60px; /* ナビバーの高さ分、コンテンツを下げる */
-      box-sizing: border-box;
     }
 
-    /* 404の文字（大きく、少し透過させることで背景に馴染ませる） */
     h1 {
-      font-size: clamp(100px, 20vw, 180px); /* 画面サイズに合わせて可変 */
+      font-size: 120px;
       margin: 0;
       font-weight: 900;
       letter-spacing: -5px;
-      line-height: 1;
-      opacity: 0.15; /* 背景に溶け込ませる */
     }
 
-    /* メッセージ（Page Not Found） */
     h3 {
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 300;
-      margin: -20px 0 40px 0; /* 404の文字に少し重ねる */
-      letter-spacing: 5px;
+      margin-bottom: 30px;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.8);
     }
 
-    /* 中央のボタン（ゴーストボタン） */
+    /* シンプルな白枠ボタン */
     button.one {
       background: transparent;
       color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      padding: 15px 40px;
-      font-size: 12px;
+      border: 1px solid #fff;
+      padding: 12px 30px;
+      font-size: 14px;
       cursor: pointer;
       transition: all 0.3s ease;
       text-transform: uppercase;
-      letter-spacing: 3px;
-      outline: none;
+      letter-spacing: 1px;
     }
 
-    /* ホバー時にボタンを白くする */
+    /* ホバー時に色を反転 */
     button.one:hover {
       background: #fff;
       color: #000;
-      border-color: #fff;
     }
 
-    /* ナビゲーション内のSettings以外を隠す設定 */
+    /* ナビゲーション内のSettings以外を隠す設定（以前の継続） */
     .f-nav-right .navbar-link {
       display: none !important;
     }
     .f-nav-right .navbar-link:last-child {
       display: inline-flex !important;
       color: #fff !important;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
+    }
+    .f-nav {
+      background: transparent !important;
+      box-shadow: none !important;
     }
   </style>
 
@@ -120,7 +85,6 @@
 
 <body>
   <div class="f-nav"></div>
-  
   <div class="main error">
     <h1>404</h1>
     <h3>Page Not Found</h3>
