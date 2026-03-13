@@ -14,30 +14,27 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   
   <style>
-    /* 1. ナビゲーションの文字（GAMES, APPS, TABS）を消す */
+    /* 1. 一旦、ナビゲーション内のすべてのリンクを非表示にする */
     .f-nav-right .navbar-link {
-      font-size: 0 !important;
-      color: transparent !important;
+      display: none !important;
+    }
+
+    /* 2. href属性に "s" (settingsのs) が含まれるリンクだけを強制的に表示する */
+    /* これにより、/s や /settings へのリンク（Settingsボタン）だけが残ります */
+    .f-nav-right .navbar-link[href*="s"] {
       display: inline-flex !important;
       align-items: center;
+      font-size: 18px !important; /* 文字サイズを戻す */
+      color: var(--text-primary) !important;
+      visibility: visible !important;
       text-decoration: none;
     }
 
-    /* 2. アイコン（Settingsなど）だけを復活させる */
-    .f-nav-right .navbar-link i, 
-    .f-nav-right .navbar-link .fa-solid,
-    .f-nav-right .navbar-link .settings-icon,
-    .f-nav-right .navbar-link span.material-symbols-outlined {
-      font-size: 20px !important; /* アイコンの適切なサイズ */
-      color: var(--text-primary) !important; /* アイコンの色を戻す */
-      visibility: visible !important;
-      margin-left: 10px; /* アイコン同士の間隔 */
-    }
-
-    /* 3. ホバー時の変な挙動を抑止 */
-    .f-nav-right .navbar-link:hover {
-      font-size: 0 !important;
-      transform: none !important;
+    /* アイコンと文字の間の調整 */
+    .f-nav-right .navbar-link[href*="s"] i,
+    .f-nav-right .navbar-link[href*="s"] .navbar-icon {
+      margin-right: 8px;
+      font-size: 20px !important;
     }
   </style>
 
