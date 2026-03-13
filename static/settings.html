@@ -55,7 +55,7 @@
       <div class="settings-card">
         <h3>パニックキーの設定</h3>
         <p>
-          特定のキーを押すと即座に別のサイト（公式サービスなど）へリダイレクトします。
+          特定のキーを押すと即座に設定したサイトへ移動します。
           複数のキーを設定する場合はコンマで区切ってください（例: "A,B,C"）。
         </p>
         <input type="text" id="eventKeyInput" placeholder="キーを入力（例: A,B）" class="key-form" />
@@ -66,7 +66,7 @@
       </div>
 
       <div class="settings-card">
-        <h3>タブの偽装 (Cloaker)</h3>
+        <h3>タブの偽装</h3>
         <p>タブに表示されるタイトルとアイコンを変更して、閲覧履歴や一覧で目立たないようにします。</p>
         <select id="dropdown" onchange="handleDropdownChange(this)">
           <option value="Classroom">デフォルト</option>
@@ -169,6 +169,8 @@
         <p id="last-updated">最終更新日: 2024年10月2日</p>
         <p>
           このProxyはInterstellarのレポジトリをフォークし、改変したものです。
+          Interstellarについては、以下のGithubを参照してください
+          https://github.com/UseInterstellar/Interstellar
         </p>
       </div>
     </div>
