@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 
 <head>
   <meta charset="UTF-8" />
@@ -8,26 +8,38 @@
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="shortcut icon" id="tab-favicon" href="favicon.png" />
-  <title id="t">Home</title>
+  <title id="t">設定 - Home</title>
   <link rel="stylesheet" id="global" href="/assets/css/global.css?v=6" />
   <link rel="stylesheet" href="/assets/css/container.css?v=2" />
   <link rel="stylesheet" href="/assets/css/nav.css?v=01" />
   <link rel="stylesheet" href="/assets/css/settings.css?v=06" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <style>
+    /* ナビゲーションの「GAMES / APPS / TABS」を隠し、Settingsだけ残す設定 */
+    .f-nav-right .navbar-link {
+      display: none !important;
+    }
+    /* "Settings"ボタン（または最後の子要素）を表示 */
+    .f-nav-right .navbar-link:last-child {
+      display: inline-flex !important;
+      align-items: center;
+    }
+  </style>
+
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6840529569014734"
     crossorigin="anonymous"></script>
-
 </head>
 
 <body>
   <div class="f-nav"></div>
   <div class="main">
     <div class="settings-container">
+      
       <div class="settings-card">
-        <h3>About:Blank</h3>
+        <h3>About:Blank 偽装</h3>
         <p>
-          Cloak the site in an about:blank page and toggle about:blank on
-          startup (enabled by default)
+          サイトを about:blank ページ内に隠蔽します。起動時に自動で有効化する設定も可能です（デフォルトでオン）。
         </p>
         <div id="ab-settings">
           <div id="ab-settings-container">
@@ -36,208 +48,137 @@
               <span class="slider-round"></span>
             </label>
           </div>
-          <button onclick="AB()" class="key-button">Open Popup</button>
+          <button onclick="AB()" class="key-button">ポップアップで開く</button>
         </div>
       </div>
+
       <div class="settings-card">
-        <h3>Set Panic Key</h3>
+        <h3>パニックキーの設定</h3>
         <p>
-          Quick open another site with one press. Used for redirects when
-          about:blank is opened. For multiple key strokes separate them with a
-          comma. Ex. "A,B,C"
+          特定のキーを押すと即座に別のサイト（公式サービスなど）へリダイレクトします。
+          複数のキーを設定する場合はコンマで区切ってください（例: "A,B,C"）。
         </p>
-        <input type="text" id="eventKeyInput" placeholder="Panic Keys (comma separated)" class="key-form" />
-        <input class="key-form" placeholder="Panic Link" type="text" id="linkInput" value />
+        <input type="text" id="eventKeyInput" placeholder="キーを入力（例: A,B）" class="key-form" />
+        <input class="key-form" placeholder="リダイレクト先URL" type="text" id="linkInput" />
         <button class="key-button" value="Save" onclick="saveEventKey()">
-          Save
+          保存する
         </button>
       </div>
+
       <div class="settings-card">
-        <h3>&#84;&#97;&#98;&#32;&#67;&#108;&#111;&#97;&#107;&#101;&#114;</h3>
-        <p>Change the title and icon of the page.</p>
+        <h3>タブの偽装 (Cloaker)</h3>
+        <p>タブに表示されるタイトルとアイコンを変更して、閲覧履歴や一覧で目立たないようにします。</p>
         <select id="dropdown" onchange="handleDropdownChange(this)">
-          <option value="Classroom">Default</option>
-          <option value="Clever">Clever</option>
-          <option value="Canvas">Canvas</option>
-          <option value="Edpuzzle">Edpuzzle</option>
+          <option value="Classroom">デフォルト</option>
           <option value="Google">Google</option>
           <option value="Google Meet">Google Meet</option>
           <option value="Classroom">Google Classroom</option>
           <option value="Drive">Google Drive</option>
           <option value="Google Docs">Google Docs</option>
-          <option value="Google Slides">Google Slides</option>
           <option value="Gmail">Gmail</option>
           <option value="Khan">Khan Academy</option>
-          <option value="Campus">Infinite Campus</option>
-          <option value="IXL">IXL</option>
-          <option value="LinkIt">LinkIt!</option>
-          <option value="Schoology">Schoology</option>
-          <option value="i-Ready Math">i-Ready Math</option>
-          <option value="i-Ready Reading">i-Ready Reading</option>
-          <option value="ClassLink Login">ClassLink Login</option>
           <option value="Wikipedia">Wikipedia</option>
-          <option value="Britannica">Britannica</option>
-          <option value="Ducksters">Ducksters</option>
-          <option value="Minga">Minga</option>
-          <option value="i-Ready Learning Games">
-            i-Ready Learning Games
-          </option>
-          <option value="NoRedInk Home">NoRedInk Home</option>
-          <option value="Newsela Binder">Newsela Binder</option>
-          <option value="Newsela Assignments">Newsela Assignments</option>
-          <option value="Newsela Home">Newsela Home</option>
-          <option value="PowerSchool Sign In">PowerSchool Sign In</option>
-          <option value="PowerSchool Grades and Attendance">
-            PowerSchool Grades and Attendance
-          </option>
-          <option value="PowerSchool Teacher Comments">
-            PowerSchool Teacher Comments
-          </option>
-          <option value="PowerSchool Standards Grades">
-            PowerSchool Standards Grades
-          </option>
-          <option value="PowerSchool Attendance">
-            PowerSchool Attendance
-          </option>
           <option value="Nearpod">Nearpod</option>
-          <option value="StudentVUE">StudentVUE</option>
           <option value="Quizlet Home">Quizlet Home</option>
-          <option value="Google Forms Locked Mode">
-            Google Forms - Locked Mode
-          </option>
-          <option value="DeltaMath">DeltaMath</option>
-          <option value="Kami">Kami</option>
-          <option value="GoGuardian Admin Restricted">
-            GoGuardian Admin Block
-          </option>
-          <option value="GoGuardian Teacher Block">
-            GoGuardian Teacher Block
-          </option>
-          <option value="World History Encyclopedia">
-            World History Encyclopedia
-          </option>
-          <option value="Big Ideas Math">Big Ideas Math</option>
-          <option value="Big Ideas Math Assignment Player">
-            Big Ideas Math Assignment Player
-          </option>
-          <option value="Savvas Realize">Savvas Realize</option>
-          <option value="SmartPass">SmartPass</option>
-          <option value="World Book Online - Super Home">
-            World Book Online (Super Home)
-          </option>
-          <option value="World Book Online - Student">
-            World Book Online (Student)
-          </option>
-          <option value="World Book Online - Timelines">
-            World Book Online (Timelines)
-          </option>
-          <option value="Naviance">Naviance Student</option>
-          <option value="PBS Learning Media">PBS Learning Media</option>
-          <option value="PBS Learning Media Student Home">
-            PBS Learning Media Student Home
-          </option>
           <option value="Dictionary">Dictionary.com</option>
-          <option value="Thesaurus">Thesaurus.com</option>
         </select>
         <div id="buttonLayer">
           <button class="key-button" value="Save" onclick="CustomIcon(); CustomName(); redirectToMainDomain();">
-            Save
+            適用する
           </button>
           <button class="key-button" value="Reset" onclick="ResetCustomCloak(); redirectToMainDomain();">
-            Reset Cloak
+            リセット
           </button>
         </div>
       </div>
+
       <div class="settings-card">
-        <h3>Set Background Image</h3>
-        <p>Change the site's background image.</p>
-        <input class="key-form" type="text" id="background-input" placeholder="Enter image URL" />
-        <button class="key-button" id="save-button">Save</button>
-        <button class="key-button" id="reset-button">Reset</button>
+        <h3>背景画像の設定</h3>
+        <p>サイトの背景画像をお好みのものに変更します。</p>
+        <input class="key-form" type="text" id="background-input" placeholder="画像のURLを入力" />
+        <button class="key-button" id="save-button">保存</button>
+        <button class="key-button" id="reset-button">リセット</button>
       </div>
+
       <div class="settings-card">
-        <h3>Search Engine</h3>
-        <p>Change the search engine when searching.</p>
+        <h3>検索エンジンの選択</h3>
+        <p>検索時に使用するエンジンを変更します。</p>
         <select title="engine" id="engine" onchange="EngineChange(this)">
-          <option value="Google">Google (Default)</option>
+          <option value="Google">Google (デフォルト)</option>
           <option value="Bing">Bing</option>
           <option value="DuckDuckGo">DuckDuckGo</option>
-          <option value="Qwant">Qwant</option>
           <option value="Startpage">Startpage</option>
-          <option value="SearchEncrypt">SearchEncrypt</option>
-          <option value="Ecosia">Ecosia</option>
         </select>
-        <input class="key-form" type="text" id="engine-form" placeholder="Change Search Engine" name="engine" />
+        <input class="key-form" type="text" id="engine-form" placeholder="カスタム検索エンジンのURL" name="engine" />
         <button class="key-button" value="Save" onclick="SaveEngine();">
-          Save
+          保存
         </button>
       </div>
+
       <div class="settings-card">
-        <h3>Choose your <an>Pro</an>xy</h3>
+        <h3>プロキシの選択</h3>
         <p>
-          Ultra<an>vio</an>let is the main <an>pro</an>xy, but Dynamic is
-          faster and supports more sites. (Dynamic is still in beta, so expect
-          some bugs.)
+          通常は Ultraviolet を使用しますが、Dynamic はより高速で多くのサイトをサポートしています（ベータ版のためバグが発生する可能性があります）。
         </p>
         <select id="pChange">
-          <option value="uv">Ultra<an>vio</an>let (Default)</option>
-          <option value="dy">Dynamic (Doesn't work in about:blank)</option>
+          <option value="uv">Ultraviolet (デフォルト)</option>
+          <option value="dy">Dynamic (about:blank内では動作しません)</option>
         </select>
       </div>
+
       <div class="settings-card">
-        <h3>Particles</h3>
+        <h3>背景パーティクル</h3>
         <p>
-          Add the particles that are from the previous version to the new
-          site.
+          以前のバージョンで使用されていた背景の粒子エフェクトを表示します。
         </p>
         <label class="switch">
           <input type="checkbox" class="slider-checkbox" id="2" />
           <span class="slider-round"></span>
         </label>
       </div>
+
       <div class="settings-card">
-        <h3>Themes!</h3>
-        <p>Pick from a variety of themes to customize your experience.</p>
-        <select placeholder="Solid Color Themes" id="dropdown" class="td" onchange="themeChange(this)">
-          <option disabled selected>Solid Color Themes</option>
-          <option value="d">Default</option>
-          <option value="Inverted">Inverted</option>
-          <option value="sky">Sky</option>
-          <option disabled selected>Catppuccin Themes</option>
+        <h3>テーマ変更</h3>
+        <p>サイト全体のカラーテーマをカスタマイズします。</p>
+        <select placeholder="ソリッドカラー" id="dropdown" class="td" onchange="themeChange(this)">
+          <option disabled selected>カラーテーマ</option>
+          <option value="d">デフォルト</option>
+          <option value="Inverted">反転</option>
+          <option value="sky">スカイブルー</option>
+          <option disabled selected>Catppuccinテーマ</option>
           <option value="catppuccinMocha">Mocha</option>
           <option value="catppuccinMacchiato">Macchiato</option>
           <option value="catppuccinFrappe">Frappe</option>
           <option value="catppuccinLatte">Latte</option>
-          <option disabled selected>Custom Themes</option>
         </select>
       </div>
+
       <div class="settings-card">
-        <h3>Save Data Management</h3>
-        <p>Export your Interstellar data on this site and import it on another site.
-          This is useful because this site might be blocked in the future,
-          but you don't want to lose your save data.
+        <h3>データ管理</h3>
+        <p>設定データをエクスポートして、別のサイトに移行できます。
+           サイトがブロックされた際のバックアップとして有効です。
         </p>
-        <p id="warning">Importing a save file will overwrite your current saves!</p>
-        <button class="key-button" value="Export" onclick="exportSaveData();">Export Save</button>
-        <button class="key-button" value="Import" onclick="importSaveData();">Import Save</button>
+        <p id="warning" style="color: #ff4444;">※インポートすると現在の設定は上書きされます！</p>
+        <button class="key-button" value="Export" onclick="exportSaveData();">データを書き出す</button>
+        <button class="key-button" value="Import" onclick="importSaveData();">データを読み込む</button>
       </div>
+
       <div class="settings-card">
-        <h3>Information</h3>
-        <p>Version: v5.2.6</p>
-        <p id="last-updated">Last Updated: October 2nd, 2024</p>
+        <h3>システム情報</h3>
+        <p>バージョン: v5.2.6</p>
+        <p id="last-updated">最終更新日: 2024年10月2日</p>
         <p>
-          Questions? Join our
-          <a href="https://discord.gg/interstellar">Discord community</a>,
-          email us at
-          <a href="mailto:hello@gointerstellar.app">hello@gointerstellar.app</a>, or
-          <a href="https://docs.gointerstellar.app/faq">check our FAQ</a>!
+          ご質問等は 
+          <a href="https://discord.gg/interstellar">Discordコミュニティ</a> 
+          またはメール（<a href="mailto:hello@gointerstellar.app">hello@gointerstellar.app</a>）までお問い合わせください。
+          <a href="https://docs.gointerstellar.app/faq">FAQ（よくある質問）</a>もご確認いただけます。
         </p>
       </div>
     </div>
   </div>
+
   <script src="/assets/js/m1.js"></script>
   <script src="/assets/js/s1.js"></script>
-  <!-- DO NOT REMOVE-->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WKJQ5QHQTJ"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -245,10 +186,8 @@
       dataLayer.push(arguments);
     }
     gtag("js", new Date());
-
     gtag("config", "G-WKJQ5QHQTJ");
   </script>
-  <!-- DO NOT REMOVE-->
 </body>
 
 </html>
