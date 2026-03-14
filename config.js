@@ -1,7 +1,7 @@
 const config = {
   challenge: challenge, // Set to true if you want to enable password protection.
   users: {
-    // You can add multiple users by doing username: 'password'.
+    // You can add multiple users by doing username: 'tiktok.com'.
     interstellar: "tiktok.com",
   },
 };
