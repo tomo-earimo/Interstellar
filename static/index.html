@@ -1,4 +1,5 @@
 <!doctype html>
+
 <html lang="en">
 
 <head>
@@ -12,15 +13,12 @@
   <link rel="stylesheet" href="/assets/css/h.css?v=01" />
   <link rel="stylesheet" href="/assets/css/nav.css?v=01" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  
+
   <style>
-    /* 1. 全てのナビゲーションボタンを一旦隠す */
     .f-nav-right .navbar-link {
       display: none !important;
     }
 
-    /* 2. "Settings" という文字を含むボタンだけを強制的に表示する */
-    /* :has() という最新のCSSを使って、中にSettingsという文字がある場合のみ表示させます */
     .f-nav-right .navbar-link:contains("設定"),
     .f-nav-right .navbar-link:has(i.fa-gear),
     .f-nav-right .navbar-link:has(i.fa-cog),
@@ -28,8 +26,6 @@
       display: inline-flex !important;
     }
 
-    /* 3. もし上記が効かない場合のバックアップ案：
-       JSで生成される順番が最後なことが多いので、最後の要素だけ表示する */
     .f-nav-right .navbar-link:last-child {
       display: inline-flex !important;
       align-items: center;
@@ -37,8 +33,6 @@
     }
   </style>
 
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6840529569014734"
-    crossorigin="anonymous"></script>
 </head>
 
 <body class="center" onload="SplashT">
@@ -55,22 +49,17 @@
       </div>
     </div>
   </div>
-  
+
   <script src="assets/js/index-3.js"></script>
+
   <script src="/assets/js/h1.js"></script>
+
   <script src="./assets/mathematics/bundle.js?v=2025-04-15"></script>
+
   <script src="./assets/mathematics/config.js?v=2025-04-15"></script>
+
   <script src="/assets/js/m1.js"></script>
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WKJQ5QHQTJ"></script>
-  <script>
-    window.dataLayer = window.dataLayer || []
-    function gtag() {
-      dataLayer.push(arguments)
-    }
-    gtag("js", new Date())
-    gtag("config", "G-WKJQ5QHQTJ")
-  </script>
 </body>
 
 </html>
