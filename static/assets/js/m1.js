@@ -16,12 +16,14 @@ document.addEventListener("DOMContentLoaded", () => {
 const nav = document.querySelector(".f-nav");
 
 if (nav) {
-const themeId = localStorage.getItem("theme");
-let LogoUrl = "/assets/media/favicon/main.png";
-if (themeId === "Inverted") {
-LogoUrl = "/assets/media/favicon/main-inverted.png";
-}
-const html = `       <div id="icon-container">         <a class="icon" href="/./"><img alt="nav" id="INImg" src="${LogoUrl}"/></a>       </div>       <div class="f-nav-right">         <a class="navbar-link" href="/./a"><i class="fa-solid fa-gamepad navbar-icon"></i><an>&#71;&#97;</an><an>&#109;&#101;&#115;</an></a>         <a class="navbar-link" href="/./b"><i class="fa-solid fa-phone navbar-icon"></i><an>&#65;&#112;</an><an>&#112;&#115;</an></a>
+const html = `       <div id="icon-container">         <a class="icon" href="/./" style="
+          font-weight:800;
+          font-size:18px;
+          text-decoration:none;
+          color:var(--text-primary);
+          letter-spacing:0.3px;
+        ">
+          おれの超最強がち神すぎproxy         </a>       </div>       <div class="f-nav-right">         <a class="navbar-link" href="/./a"><i class="fa-solid fa-gamepad navbar-icon"></i><an>&#71;&#97;</an><an>&#109;&#101;&#115;</an></a>         <a class="navbar-link" href="/./b"><i class="fa-solid fa-phone navbar-icon"></i><an>&#65;&#112;</an><an>&#112;&#115;</an></a>
         ${qp ? "" : '<a class="navbar-link" href="/./d"><i class="fa-solid fa-laptop navbar-icon"></i><an>&#84;&#97;</an><an>&#98;&#115;</an></a>'}         <a class="navbar-link" href="/./c"><i class="fa-solid fa-gear navbar-icon settings-icon"></i><an>&#83;&#101;&#116;</an><an>&#116;&#105;&#110;&#103;</an></a>       </div>`;
 nav.innerHTML = html;
 }
